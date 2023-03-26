@@ -8,12 +8,14 @@ import Navigation from './components/Navigation';
 
 import './App.css';
 import LoadingAnimation from "./components/LoadingAnimation";
+import Modal from "./components/Modal";
 
 function App() {
   const [url, setUrl] = React.useState('');
   const [details, setDetails] = React.useState('');
   const [color, setColor] = React.useState('#000000');
   const [loading, setLoading] = React.useState(false);
+  const [showModal, setShowModal] = React.useState(true);
 
   const handleSubmit = () => {
     setLoading(true);
@@ -28,6 +30,7 @@ function App() {
 
   return (
     <>
+      <Modal isOpen={showModal} onClose={() => setShowModal(false)} />
       {loading ?
         <LoadingAnimation /> :
         <Router>
