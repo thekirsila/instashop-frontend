@@ -1,0 +1,23 @@
+svg {
+    position: absolute;
+    width: 240px;
+    height: 120px;
+    top: 0; right: 0;
+    bottom: 0; left: 0;
+    margin: auto;
+}
+
+svg #plug,
+svg #socket {
+    fill:rgb(2, 100, 81);
+}
+
+svg #loop-normal {
+    fill: none;
+    stroke: rgb(2, 100, 81);
+    stroke-width: 12;
+}
+
+svg #loop-offset {
+    display: none;
+}
