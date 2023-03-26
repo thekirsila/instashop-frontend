@@ -9,6 +9,8 @@ import Navigation from './components/Navigation';
 import './App.css';
 import LoadingAnimation from "./components/LoadingAnimation";
 import Modal from "./components/Modal";
+import Mockup1 from "./components/Mockup1";
+import Mockup2 from "./components/Mockup2";
 
 function App() {
   const [url, setUrl] = React.useState('');
@@ -16,15 +18,19 @@ function App() {
   const [color, setColor] = React.useState('#000000');
   const [loading, setLoading] = React.useState(false);
   const [showModal, setShowModal] = React.useState(true);
+  const [mockup, setMockup] = React.useState(0);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setLoading(true);
     const data = {
       url, details, color
     }
 
-    // TODO: Add call to API
+    await new Promise(resolve => setTimeout(resolve, 3000));
+
     console.log(data);
+
+    window.location.replace('https://instagen-dusky.vercel.app/');
     setLoading(false);
   }
 
@@ -86,7 +92,7 @@ function App() {
                           item={color}
                           action={setColor}
                         >
-                          <ColorPicker setColor={setColor} />
+                          <ColorPicker onColorChange={setColor} />
                           <button className="next-button" onClick={handleSubmit} style={{marginTop: "5px"}}>Submit</button>
                         </Question>
                         <Navigation prev="/details" />
