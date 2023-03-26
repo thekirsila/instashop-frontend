@@ -11,6 +11,7 @@ import LoadingAnimation from "./components/LoadingAnimation";
 import Modal from "./components/Modal";
 import Mockup1 from "./components/Mockup1";
 import Mockup2 from "./components/Mockup2";
+import axios from "axios";
 
 function App() {
   const [url, setUrl] = React.useState('');
@@ -26,7 +27,9 @@ function App() {
       url, details, color
     }
 
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    const response = await axios.get(`https://studio-dev.artspark.io/gpt?url=${url}`);
+
+    await new Promise(resolve => setTimeout(resolve, 5000));
 
     console.log(data);
 
