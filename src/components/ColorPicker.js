@@ -46,6 +46,7 @@ function ColorPicker(props) {
     },
   };
 
+
   return (
     <div>
       <div style={styles.swatch} onClick={handleClick}>
